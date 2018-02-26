@@ -11,11 +11,9 @@ class GuessButton extends PureComponent {
     makeGuess: PropTypes.func.isRequired,
   }
 
-  handleClick = () => {
-    const { value, locked, makeGuess } = this.props
-    if (locked) return
-    console.log(value)
-    makeGuess(this.props.possible_guesses, value)
+  handleClick = (e) => {
+    console.log(e.target.value);
+    makeGuess(e.target.value)
   }
 
   renderButton = (value,key ) => {
@@ -40,4 +38,4 @@ const mapStateToProps = state => {
   return state;
 }
 
-export default connect(mapStateToProps, {makeGuess: makeGuess})(GuessButton)
+export default connect(mapStateToProps, {makeGuess})(GuessButton)
