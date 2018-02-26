@@ -7,9 +7,10 @@ const POSSIBLE_GUESSES = [
 export default (state = POSSIBLE_GUESSES, { type, payload } =  {} ) => {
   switch(type) {
     case CREATE_GAME:
-      return [].concat(payload.board)
-    case MAKE_GUESS:
       return state
+    case MAKE_GUESS:
+      console.log(payload.value)
+      return this.guessed.concat(payload.value)
     default:
       return state
   }
