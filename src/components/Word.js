@@ -14,7 +14,8 @@ class Word extends PureComponent {
       <div class="word">
         {this.props.word.split('').map(letter => {
           return "_ "
-        })}
+        }
+      )}
       </div>
     )
   }

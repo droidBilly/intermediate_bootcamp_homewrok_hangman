@@ -9,8 +9,9 @@ export default (state = POSSIBLE_GUESSES, { type, payload } =  {} ) => {
     case CREATE_GAME:
       return state
     case MAKE_GUESS:
-      console.log(payload.value)
-      return this.guessed.concat(payload.value)
+    console.log(payload)
+    console.log(state)
+      return state.filter(item => item !== payload )
     default:
       return state
   }

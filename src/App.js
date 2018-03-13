@@ -7,8 +7,6 @@ import Word from "./components/Word";
 
 class App extends Component {
   render() {
-    console.log(this.props);
-    console.log(this.props.possible_guesses);
     return (
       <div className="App">
         <h1 className="App-title">Hangman</h1>
@@ -23,7 +21,12 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return state;
+  return {
+    possible_guesses: state,
+    word: state,
+    guessed: state,
+    hangSteps: state,
+  }
 }
 
 export default connect(mapStateToProps) (App);

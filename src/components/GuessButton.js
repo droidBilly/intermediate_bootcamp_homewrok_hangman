@@ -1,27 +1,17 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import './GuessButton.css'
 import { connect } from 'react-redux'
 import { makeGuess } from '../actions/game'
 
 class GuessButton extends PureComponent {
-  static propTypes = {
-    value: PropTypes.string.isRequired,
-    locked: PropTypes.bool,
-    makeGuess: PropTypes.func.isRequired,
-  }
 
   handleClick = (e) => {
-    console.log(e.target.value);
-    makeGuess(e.target.value)
+    this.props.makeGuess(e.target.value)
   }
 
   renderButton = (value,key ) => {
     return (
-      <button
-      value={value}
-      onClick={this.handleClick}
-      >
+      <button value={value} onClick={this.handleClick}>
         {value.toUpperCase()}
       </button>
     )
@@ -34,8 +24,8 @@ class GuessButton extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return state;
+const mapStateToProps = (state, props) => {
+  return state
 }
 
 export default connect(mapStateToProps, {makeGuess})(GuessButton)
