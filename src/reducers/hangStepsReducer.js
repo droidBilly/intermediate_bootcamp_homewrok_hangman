@@ -59,7 +59,7 @@ const hangSteps = [
   ___|___`
   ]
 
-  export default (state = hangSteps[5], { type, payload } =  {} ) => {
+  export default (state = hangSteps[0], { type, payload } =  {} ) => {
     switch(type) {
       case SHOW_HANGSTEP:
       switch(payload.guessed.lenght()) {

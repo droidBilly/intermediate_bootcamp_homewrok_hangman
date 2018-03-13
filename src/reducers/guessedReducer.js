@@ -1,8 +1,9 @@
-import { MAKE_GUESS } from '../actions/types'
+import { MAKE_GUESS, CREATE_GAME } from '../actions/types'
 
 export default function (state = [], action) {
-  console.log(action.type);
   switch(action.type) {
+    case CREATE_GAME:
+      return state = []
     case MAKE_GUESS:
       return state.concat(action.payload)
     default:

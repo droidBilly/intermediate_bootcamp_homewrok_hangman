@@ -9,13 +9,15 @@ class Word extends PureComponent {
   }
 
   render() {
-    console.log(this.props.word)
+    console.log(this.props.guessed)
     return (
       <div class="word">
         {this.props.word.split('').map(letter => {
-          return "_ "
-        }
-      )}
+          if(this.props.guessed.indexOf(letter) === -1) {
+            return "_"
+          }
+            return letter
+        }).join(" ")}
       </div>
     )
   }
@@ -28,8 +30,8 @@ class Word extends PureComponent {
 //       return letter
 //   }).join(" ")
 
-const mapStateToProps = state => {
-  return state;
+const mapStateToProps = word => {
+  return word;
 }
 
 export default connect(mapStateToProps)(Word)

@@ -15,6 +15,9 @@ class App extends Component {
         <HangSteps />
         <Word / >
         <GuessButton />
+
+
+        <br/>
       </div>
     );
   }
