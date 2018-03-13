@@ -4,6 +4,7 @@ import './App.css';
 import GuessButton from "./components/GuessButton";
 import HangSteps from "./components/HangSteps";
 import Word from "./components/Word";
+import NewGameButton from "./components/NewGameButton";
 
 class App extends Component {
   render() {
@@ -16,8 +17,8 @@ class App extends Component {
         <Word / >
         <GuessButton />
 
-
         <br/>
+        <NewGameButton />
       </div>
     );
   }

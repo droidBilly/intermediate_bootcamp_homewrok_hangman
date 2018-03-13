@@ -1,7 +1,6 @@
-import { CREATE_GAME, MAKE_GUESS } from '../actions/types'
+import { CREATE_GAME } from '../actions/types'
 
 const POSSIBLE_WORDS = ["amsterdam","bankok","kuala lumpur","canberra","rio de janeiro", "washington", "lisbon", "stockholm"]
-
 const random_word = POSSIBLE_WORDS[Math.floor(Math.random() * POSSIBLE_WORDS.length)]
 
 export default (state = POSSIBLE_WORDS, { type, payload } =  {} ) => {

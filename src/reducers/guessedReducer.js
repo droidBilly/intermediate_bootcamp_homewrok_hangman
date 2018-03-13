@@ -5,7 +5,7 @@ export default function (state = [], action) {
     case CREATE_GAME:
       return state = []
     case MAKE_GUESS:
-      return state.concat(action.payload)
+      return state.concat(action.payload.value)
     default:
       return state
   }

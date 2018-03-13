@@ -5,13 +5,12 @@ import { connect } from 'react-redux'
 
 class HangSteps extends PureComponent {
   static propTypes = {
-    value: PropTypes.string.isRequired,
+    hangSteps: PropTypes.string.isRequired,
   }
 
   render() {
-    console.log(this.props.hangSteps)
     return (
-      <div class="hangSteps">
+      <div className="hangSteps">
         {this.props.hangSteps}
       </div>
     )

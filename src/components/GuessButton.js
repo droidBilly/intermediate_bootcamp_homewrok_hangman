@@ -6,12 +6,12 @@ import { makeGuess } from '../actions/game'
 class GuessButton extends PureComponent {
 
   handleClick = (e) => {
-    this.props.makeGuess(e.target.value)
+    this.props.makeGuess(e.target.value, this.props.word)
   }
 
   renderButton = (value,key ) => {
     return (
-      <button value={value} onClick={this.handleClick}>
+      <button key={value} value={value} onClick={this.handleClick}>
         {value.toUpperCase()}
       </button>
     )

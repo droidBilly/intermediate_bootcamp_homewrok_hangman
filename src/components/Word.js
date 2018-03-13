@@ -5,13 +5,12 @@ import { connect } from 'react-redux'
 
 class Word extends PureComponent {
   static propTypes = {
-    value: PropTypes.string.isRequired,
+    word: PropTypes.string.isRequired,
   }
 
   render() {
-    console.log(this.props.guessed)
     return (
-      <div class="word">
+      <div className="word">
         {this.props.word.split('').map(letter => {
           if(this.props.guessed.indexOf(letter) === -1) {
             return "_"
