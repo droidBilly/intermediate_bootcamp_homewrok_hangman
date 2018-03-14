@@ -21,13 +21,13 @@ class App extends Component {
         <br/>
         { this.props.guessed.isWinner == 'winner' &&
           <div>
-            <p>You WON!</p>
+            <p className="notification">You WON!</p>
             <NewGameButton />
           </div>
         }
         { this.props.guessed.isWinner == 'loser' &&
           <div>
-            <p>You LOST!</p>
+            <p className="notification">You LOST!</p>
             <NewGameButton />
           </div>
         }
