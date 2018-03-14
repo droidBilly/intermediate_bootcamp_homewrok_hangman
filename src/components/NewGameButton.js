@@ -5,13 +5,13 @@ import { newGame } from '../actions/game'
 
 class NewGameButton extends PureComponent {
 
-  handleClick = (e) => {
+  handleClick = () => {
     this.props.newGame()
   }
 
   render() {
     return (
-      <button value="newGame" onClick={this.handleClick}>
+      <button className="newGame" onClick={this.handleClick}>
         New Game
       </button>
     )

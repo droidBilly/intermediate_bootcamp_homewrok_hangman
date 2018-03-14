@@ -7,7 +7,7 @@ class HangSteps extends PureComponent {
   render() {
     return (
       <div className="hangSteps">
-        <img className="hangpic" src={`${this.props.guessed.hangpic}`}/>
+        <img className="hangpic" src={`${this.props.guessed.hangpic}`} alt="hangStep"/>
       </div>
     )
   }

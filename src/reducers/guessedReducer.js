@@ -1,11 +1,11 @@
-import { MAKE_GUESS, CREATE_GAME } from '../actions/types'
+import { MAKE_GUESS, CREATE_GAME } from '../actions/game'
 
 const POSSIBLE_WORDS = ["amsterdam","bankok","kuala lumpur","canberra","rio de janeiro", "washington", "lisbon", "stockholm"]
 const random_word = POSSIBLE_WORDS[Math.floor(Math.random() * POSSIBLE_WORDS.length)]
 const POSSIBLE_GUESSES = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ']
 
 const initialState = {
-  word: random_word,
+  word: random_word.toUpperCase(),
   possible_guesses: POSSIBLE_GUESSES,
   guessed: [],
   showWord: showGuess(random_word, ''),
@@ -18,7 +18,7 @@ export default function (state = initialState, { type, payload }) {
     case CREATE_GAME:
       return state = initialState
     case MAKE_GUESS:
-        state.guessed = state.guessed.concat(payload.value)
+        state.guessed = state.guessed.concat(payload.value.toUpperCase())
       return {
         word: state.word,
         possible_guesses: state.possible_guesses.filter(item => item !== payload.value ),
@@ -61,6 +61,7 @@ function showGuess(word, guesses) {
 }
 
 function isWinner(word, guesses) {
-  if(wrongGuessCount(word, guesses) >6) return false
-  return showGuess(word, guesses).indexOf("_") === -1
+  if(wrongGuessCount(word, guesses) >5) return 'loser'
+  else if (wrongGuessCount(word, guesses)<5 && showGuess(word, guesses).indexOf("_") === -1) return 'winner'
+  else return 'playing'
 }

@@ -17,10 +17,9 @@ class App extends Component {
         <Word / >
         <GuessButton />
         <br/>
-
-      {/*   { !this.props.hangSteps.hangSteps.lives > 0 && */}
+        { this.props.guessed.isWinner == 'winner' || this.props.guessed.isWinner == 'loser' && 
           <NewGameButton />
-        
+        }
 
       </div>
     );
@@ -28,12 +27,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    possible_guesses: state,
-    word: state,
-    guessed: state,
-    hangSteps: state,
-  }
+  return state
 }
 
 export default connect(mapStateToProps) (App);

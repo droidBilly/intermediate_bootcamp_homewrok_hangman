@@ -1,4 +1,5 @@
-import { MAKE_GUESS, CREATE_GAME } from './types'
+export const CREATE_GAME = "CREATE_GAME"
+export const MAKE_GUESS = "MAKE_GUESS"
 
 export const makeGuess = (value, word) => ({
       type: MAKE_GUESS,
@@ -7,6 +8,6 @@ export const makeGuess = (value, word) => ({
         word: word}
     })
 
-export const newGame =({
+export const newGame = () => ({
   type: CREATE_GAME
 })
