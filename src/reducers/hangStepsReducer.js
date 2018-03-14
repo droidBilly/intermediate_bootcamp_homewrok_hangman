@@ -1,87 +1,33 @@
 import { MAKE_GUESS } from '../actions/types'
 
-const hangSteps = [
-  `
+  const gameState = { lives: 7, hangpic: 0 }
 
-
-
-
-
-
-  `,
-  `
-
-
-
-
-
-
-  _______`,
-  `
-     |
-     |
-     |
-     |
-     |
-     |
-  ___|___`,
-  `   ____________
-     |
-     |
-     |
-     |
-     |
-     |
-  ___|___`,
-  `   ____________
-     |/
-     |
-     |
-     |
-     |
-     |
-  ___|___`,
-  `   ____________
-     |/      |
-     |
-     |
-     |
-     |
-     |
-  ___|___`,
-  `   ____________
-     |/      |
-     |      (_)
-     |      \\|/
-     |       |
-     |      / \\
-     |
-  ___|___`
-  ]
-
-  export default (state = 7, { type, payload } =  {} ) => {
+  export default (state = gameState, { type, payload } =  {} ) => {
     switch(type) {
       case MAKE_GUESS:
-        if (payload.word.indexOf(payload.word) > -1) {state--
-        switch(state) {
+        if (payload.word.indexOf(payload.word) > -1) {
+        state.lives--
+        state.hangpic++
+        switch(state.lives) {
           case 6:
-            return hangSteps[0]
+            return state
           case 5:
-            return (hangSteps[1])
+            return state
           case 4:
-            return (hangSteps[2])
+            return state
           case 3:
-            return (hangSteps[3])
+            return state
           case 2:
-            return (hangSteps[4])
+            return state
           case 1:
-            return (hangSteps[5])
+            return state
           case 0:
-            return (hangSteps[6])
+            return state
           default:
             return state
           }
         }
+        else state.lives++
       default:
         return state
     }
