@@ -19,7 +19,7 @@ class GuessButton extends PureComponent {
 
   render() {
     return (
-      this.props.possible_guesses.map(this.renderButton)
+      this.props.guessed.possible_guesses.map(this.renderButton)
     )
   }
 }

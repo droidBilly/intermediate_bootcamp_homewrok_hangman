@@ -18,9 +18,9 @@ class App extends Component {
         <GuessButton />
         <br/>
 
-        { !this.props.hangSteps.hangSteps.lives > 0 &&
+      {/*   { !this.props.hangSteps.hangSteps.lives > 0 && */}
           <NewGameButton />
-        }
+        
 
       </div>
     );
