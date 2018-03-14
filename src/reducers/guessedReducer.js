@@ -3,11 +3,12 @@ import { MAKE_GUESS, CREATE_GAME } from '../actions/game'
 const POSSIBLE_WORDS = ["amsterdam","bankok","kuala lumpur","canberra","rio de janeiro", "washington", "lisbon", "stockholm"]
 const random_word = POSSIBLE_WORDS[Math.floor(Math.random() * POSSIBLE_WORDS.length)]
 const POSSIBLE_GUESSES = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ']
+const GUESSES = []
 
 const initialState = {
   word: random_word.toUpperCase(),
   possible_guesses: POSSIBLE_GUESSES,
-  guessed: [],
+  guessed: GUESSES,
   showWord: showGuess(random_word, ''),
   hangpic: showHangman(0),
   isWinner: false
@@ -16,13 +17,12 @@ const initialState = {
 export default function (state = initialState, { type, payload }) {
   switch(type) {
     case CREATE_GAME:
-      return state = initialState
+      return initialState
     case MAKE_GUESS:
-        state.guessed = state.guessed.concat(payload.value.toUpperCase())
       return {
         word: state.word,
         possible_guesses: state.possible_guesses.filter(item => item !== payload.value ),
-        guessed: state.guessed,
+        guessed: state.guessed.concat(payload.value.toUpperCase()),
         showWord: showGuess(state.word, state.guessed),
         hangpic: showHangman(wrongGuessCount(state.word, state.guessed)),
         isWinner: isWinner(state.word, state.guessed)
