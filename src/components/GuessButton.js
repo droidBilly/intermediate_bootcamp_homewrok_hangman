@@ -10,12 +10,21 @@ class GuessButton extends PureComponent {
   }
 
   renderButton = (value,key ) => {
-    return (
-      <button key={value} value={value} onClick={this.handleClick}>
-        {value.toUpperCase()}
-      </button>
-    )
-  }
+    {if (value === " ") {
+      return (
+        <button key={value} value={value} onClick={this.handleClick}>
+          Space
+        </button>
+      )
+    }
+    else {
+      return (
+        <button key={value} value={value} onClick={this.handleClick}>
+          {value.toUpperCase()}
+        </button>
+      )
+    }
+  }}
 
   render() {
     return (

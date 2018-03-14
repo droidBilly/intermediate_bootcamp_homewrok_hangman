@@ -11,15 +11,27 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="App-title">Hangman</h1>
-    {/*      <embed src="../bg_music.mp3" width="0" height="0" loop="false" autostart="false" hidden="true" />*/}
+        <embed src="../bg_music.mp3" width="0" height="0" loop="false" autostart="false" hidden="true" />
 
         <HangSteps />
         <Word / >
+        { !(this.props.guessed.isWinner == 'winner' || this.props.guessed.isWinner == 'loser') &&
         <GuessButton />
-        <br/>
-        { this.props.guessed.isWinner == 'winner' || this.props.guessed.isWinner == 'loser' && 
-          <NewGameButton />
         }
+        <br/>
+        { this.props.guessed.isWinner == 'winner' &&
+          <div>
+            <p>You WON!</p>
+            <NewGameButton />
+          </div>
+        }
+        { this.props.guessed.isWinner == 'loser' &&
+          <div>
+            <p>You LOST!</p>
+            <NewGameButton />
+          </div>
+        }
+
 
       </div>
     );
